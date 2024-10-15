@@ -12,58 +12,74 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondo_app"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="51dp">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/editTextText"
-                android:layout_width="287dp"
-                android:layout_height="52dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="16dp"
-                android:backgroundTint="#FFFFFF"
-                android:ems="10"
-                android:hint="@string/mensaje"
-                android:inputType="text"
-                android:textColor="#FFFEFE"
-                android:textColorHint="#FBFBFB"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+        <EditText
+            android:id="@+id/MsgEnviar1"
+            android:layout_width="287dp"
+            android:layout_height="52dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FFFFFF"
+            android:ems="10"
+            android:hint="@string/mensaje"
+            android:inputType="text"
+            android:textColor="#FFFEFE"
+            android:textColorHint="#FBFBFB"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageButton
-                android:id="@+id/imageButton7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_send" />
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:layout_marginBottom="16dp"
+            android:contentDescription="TODO"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@android:drawable/ic_menu_send"
+            android:onClick="onClick" />
 
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="176dp"
-                android:layout_marginTop="18dp"
-                android:layout_marginEnd="165dp"
-                android:text="Actividad 1"
-                android:textColor="#C8B009"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/Titulo1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="176dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="165dp"
+            android:text="@string/actividad_1"
+            android:textColor="#C8B009"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.607"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ScrollView
+            android:id="@+id/ScrollView"
+            android:layout_width="388dp"
+            android:layout_height="476dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="74dp"
+            app:layout_constraintBottom_toTopOf="@+id/MsgEnviar1"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:id="@+id/ContenedorMsg1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
     </LinearLayout>
+</ScrollView>
 
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>

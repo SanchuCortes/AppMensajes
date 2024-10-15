@@ -5,40 +5,44 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#100101"
     tools:context=".MainActivity2">
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondo_app2"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="51dp">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <ImageButton
-                android:id="@+id/imageButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="4dp"
-                android:layout_marginBottom="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
+            <ScrollView
+                android:layout_width="364dp"
+                android:layout_height="498dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/MsgEnviar2"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_send" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/ContenedorMsg2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"></LinearLayout>
+            </ScrollView>
 
             <EditText
-                android:id="@+id/editTextText3"
-                android:layout_width="291dp"
+                android:id="@+id/MsgEnviar2"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginBottom="20dp"
                 android:backgroundTint="#FFFFFF"
-                android:ems="10"
-                android:hint="Mensaje..."
+                android:hint="@string/mensajerecibido"
                 android:inputType="text"
                 android:textColor="#FFFEFE"
                 android:textColorHint="#FBFBFB"
@@ -47,18 +51,31 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <ImageButton
+                android:id="@+id/imageButton2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="16dp"
+                android:contentDescription="@string/btnenviar"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@android:drawable/ic_menu_send"
+                android:onClick="respuesta" />
+
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textViewAct2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="144dp"
                 android:layout_marginTop="40dp"
-                android:text="Actividad 2"
+                android:text="@string/actividad_2"
                 android:textColor="#11CED7"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
