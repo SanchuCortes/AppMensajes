@@ -46,21 +46,22 @@ public class MainActivity2 extends AppCompatActivity {
         // Cargar mensajes anteriores al recrear la actividad
         if (savedInstanceState != null) {
             mensajesRecibidos = savedInstanceState.getStringArrayList("mensajesRecibidos");
-            if (mensajesRecibidos != null) { // Verifica que no sea nulo
+            if (mensajesRecibidos != null) {
                 for (String mensaje : mensajesRecibidos) {
-                    addMessage(mensaje, "recibido"); // Muestra mensajes guardados
+                    addMessage(mensaje, "recibido");
                 }
             }
         }
     }
 
+    // Método para agregar un mensaje al contenedor visual
     private void addMessage(String message, String tipo) {
-        TextView messageView = new TextView(this);
-        messageView.setText(message);
-        messageView.setTextSize(24);
-        messageView.setPadding(16, 16, 16, 16); // Espaciado interno
+        TextView messageView = new TextView(this);  // Crea una nueva vista de texto para mostrar el mensaje
+        messageView.setText(message);  // Establece el texto del mensaje
+        messageView.setTextSize(24);  // Tamaño de letra del mensaje
+        messageView.setPadding(16, 16, 16, 16); // Añade padding interno al mensaje
 
-        // Prepara el mensaje para que aparezca alineado según el tipo
+        // Configura el estilo y alineación del mensaje según el tipo
         if (tipo.equals("enviado")) {
             messageView.setBackgroundColor(0xFFE1BEE7); // Color morado claro para mensajes enviados
             messageView.setText("Yo: " + message);
@@ -68,7 +69,7 @@ public class MainActivity2 extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.gravity = android.view.Gravity.END; // Alinear a la derecha
+            params.gravity = android.view.Gravity.END; // Alinea el mensaje a la derecha
             messageView.setLayoutParams(params);
         } else {
             messageView.setBackgroundColor(0xFFB3E5FC); // Color azul claro para mensajes recibidos
@@ -77,34 +78,37 @@ public class MainActivity2 extends AppCompatActivity {
                     LinearLayout.LayoutParams.WRAP_CONTENT,
                     LinearLayout.LayoutParams.WRAP_CONTENT
             );
-            params.gravity = android.view.Gravity.START; // Alinear a la izquierda
+            params.gravity = android.view.Gravity.START; // Alinea el mensaje a la izquierda
             messageView.setLayoutParams(params);
         }
-        messagesContainer.addView(messageView); // Añadir el mensaje al contenedor
 
-        // Guardar el mensaje recibido
+        messagesContainer.addView(messageView); // Añade el mensaje al contenedor visual
+
         if (tipo.equals("recibido")) {
-            mensajesRecibidos.add(message);
+            mensajesRecibidos.add(message); // Agrega el mensaje a la lista de recibidos
         }
     }
 
+    // Método llamado cuando se hace clic en el botón de respuesta
     public void respuesta(View view) {
-        Intent i_res = new Intent();
-        EditText et = findViewById(R.id.MsgEnviar2);
-        String respuesta = et.getText().toString();
+        Intent i_res = new Intent();  // Crea un nuevo Intent para devolver la respuesta
+        EditText et = findViewById(R.id.MsgEnviar2);  // Obtiene el campo de texto donde el usuario escribe la respuesta
+        String respuesta = et.getText().toString();  // Convierte el texto a String
 
-        if (!respuesta.isEmpty()) { // Verifica que no esté vacío
-            addMessage(respuesta, "recibido"); // Añade la respuesta al TextView
-            et.setText(""); // Limpia el EditText
-            i_res.putExtra("Respuesta", respuesta); // Envía la respuesta a MainActivity
-            setResult(RESULT_OK, i_res);
-            finish();
+        // Si la respuesta no está vacía, procede a enviarla
+        if (!respuesta.isEmpty()) {
+            addMessage(respuesta, "recibido"); // Añade la respuesta al contenedor como mensaje "recibido"
+            et.setText(""); // Limpia el campo de texto para que el usuario pueda escribir otra respuesta
+            i_res.putExtra("Respuesta", respuesta); // Añade la respuesta al Intent para enviarla a MainActivity
+            setResult(RESULT_OK, i_res); // Establece el resultado como exitoso
+            finish(); // Cierra la actividad y regresa a MainActivity
         }
     }
 
+    // Método para guardar el estado de la actividad (mensajes recibidos) cuando se destruye temporalmente
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putStringArrayList("mensajesRecibidos", mensajesRecibidos); // Guardar el historial de mensajes
+        outState.putStringArrayList("mensajesRecibidos", mensajesRecibidos); // Guarda el historial de mensajes recibidos en el Bundle
     }
 }
